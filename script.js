@@ -21,7 +21,7 @@ function initGame(){
     lock = false;
     for(let i = 0; i < 12; i++){
         const CASE = document.getElementById("i");
-        CASE.span.textContent = LEGUMES[Math.floor(Math.random())*5];
+        CASE.textContent = LEGUMES[Math.floor(Math.random()*LEGUMES.length)];
     };
 };
 
