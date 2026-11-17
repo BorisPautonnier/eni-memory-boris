@@ -4,19 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
     <title>ENI - Memory</title>
 </head>
 <body class="row justify-content-center bg-info">
     <h1 class="text-center">ENI - <strong>Memory</strong> - Jouer</h1>
-    <nav class="navbar bg-dark d-flex justify-content-evenly rounded-1 m-1 m-lg-5 col-11 col-lg-6">
+    <nav class="navbar bg-dark d-flex justify-content-evenly rounded-3 m-1 m-lg-5 col-11 col-lg-6">
         <a href="index.html" class="link-light">Accueil</a>
         <a href="inscription.html" class="link-light">S'inscrire</a>
         <a href="connexion.html" class="link-light">Se connecter</a>
         <a href="profil.html" class="link-light">Profil</a>
         <a href="jeu.html" class="link-light">Jouer</a>
     </nav>
-    <section class="border border-black bg-dark text-light rounded-3 m-1 m-lg-5 p-1 p-lg-5 container text-center col-11 col-lg-8">
+    <section class="border border-black rounded-3 bg-dark text-light text-center m-1 m-lg-5 p-1 p-lg-5 col-11 col-lg-8">
         <h2>Derniers meilleurs scores</h2>
         <div></div>
         <p>Tentez de gagner avec le moins d'essais possible</p>
@@ -24,22 +25,22 @@
         <p>Nombre de coups : <div id="moves"></div></p>
         <table class="d-flex justify-content-center">
             <tr>
-                <td id="0"><img class="m-1 p-1 border border-black rounded-2 bg-light" src="ressources\question.svg" alt="Image inconnue" width="100"/></td>
-                <td id="1"><img class="m-1 p-1 border border-black rounded-2 bg-light" src="ressources\question.svg" alt="Image inconnue" width="100"/></td>
-                <td id="2"><img class="m-1 p-1 border border-black rounded-2 bg-light" src="ressources\question.svg" alt="Image inconnue" width="100"/></td>
-                <td id="3"><img class="m-1 p-1 border border-black rounded-2 bg-light" src="ressources\question.svg" alt="Image inconnue" width="100"/></td>
+                <td id="0" class="d-block m-1 p-1 border border-black rounded-2 bg-light text-black" width=120px height=120px>?</td>
+                <td id="1" class="d-block m-1 p-1 border border-black rounded-2 bg-light text-black" width=120px height=120px>?</td>
+                <td id="2" class="d-block m-1 p-1 border border-black rounded-2 bg-light text-black" width=120px height=120px>?</td>
+                <td id="3" class="d-block m-1 p-1 border border-black rounded-2 bg-light text-black" width=120px height=120px>?</td>
             </tr>
             <tr>
-                <td id="4"><img class="m-1 p-1 border border-black rounded-2 bg-light" src="ressources\question.svg" alt="Image inconnue" width="100"/></td>
-                <td id="5"><img class="m-1 p-1 border border-black rounded-2 bg-light" src="ressources\question.svg" alt="Image inconnue" width="100"/></td>
-                <td id="6"><img class="m-1 p-1 border border-black rounded-2 bg-light" src="ressources\question.svg" alt="Image inconnue" width="100"/></td>
-                <td id="7"><img class="m-1 p-1 border border-black rounded-2 bg-light" src="ressources\question.svg" alt="Image inconnue" width="100"/></td>
+                <td id="4" class="d-block m-1 p-1 border border-black rounded-2 bg-light text-black" width=120px height=120px>?</td>
+                <td id="5" class="d-block m-1 p-1 border border-black rounded-2 bg-light text-black" width=120px height=120px>?</td>
+                <td id="6" class="d-block m-1 p-1 border border-black rounded-2 bg-light text-black" width=120px height=120px>?</td>
+                <td id="7" class="d-block m-1 p-1 border border-black rounded-2 bg-light text-black" width=120px height=120px>?</td>
             </tr>
             <tr>
-                <td id="8"><img class="m-1 p-1 border border-black rounded-2 bg-light" src="ressources\question.svg" alt="Image inconnue" width="100"/></td>
-                <td id="9"><img class="m-1 p-1 border border-black rounded-2 bg-light" src="ressources\question.svg" alt="Image inconnue" width="100"/></td>
-                <td id="10"><img class="m-1 p-1 border border-black rounded-2 bg-light" src="ressources\question.svg" alt="Image inconnue" width="100"/></td>
-                <td id="11"><img class="m-1 p-1 border border-black rounded-2 bg-light" src="ressources\question.svg" alt="Image inconnue" width="100"/></td>
+                <td id="8" class="d-block m-1 p-1 border border-black rounded-2 bg-light text-black" width=120px height=120px>?</td>
+                <td id="9" class="d-block m-1 p-1 border border-black rounded-2 bg-light text-black" width=120px height=120px>?</td>
+                <td id="10" class="d-block m-1 p-1 border border-black rounded-2 bg-light text-black" width=120px height=120px>?</td>
+                <td id="11" class="d-block m-1 p-1 border border-black rounded-2 bg-light text-black" width=120px height=120px>?</td>
             </tr>
         </table>
     </section>

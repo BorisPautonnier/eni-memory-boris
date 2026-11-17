@@ -21,10 +21,10 @@ function initGame(){
     lock = false;
     for(let i = 0; i < 12; i++){
         const CASE = document.getElementById("i");
-        
+        CASE.span.textContent = LEGUMES[Math.floor(Math.random())*5];
     };
 };
 
-window.onload = initGame;
+window.onload = initGame; // Initialise le plateau au chargement de la page.
 
-document.addEventListener('keydown', e => {if (e.code === 'Space'){initGame()}});
+document.addEventListener('keydown', e => {if (e.code === 'Space') initGame();}); // Initialise le plateau quand on appuie sur espace.
