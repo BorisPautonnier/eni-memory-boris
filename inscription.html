@@ -8,26 +8,36 @@
 </head>
 <body>
     <h1 class="d-flex justify-content-center">ENI - <strong>Memory</strong> - Inscription</h1>
-    <nav class="navbar bg-dark d-flex justify-content-evenly rounded-1 mx-md-5">
+    <nav class="navbar bg-dark d-flex justify-content-evenly rounded-1 m-1 m-md-5">
         <a href="index.html" class="link-light">Accueil</a>
         <a href="inscription.html" class="link-light">S'inscrire</a>
         <a href="connexion.html" class="link-light">Se connecter</a>
         <a href="profil.html" class="link-light">Profil</a>
         <a href="jeu.html" class="link-light">Jouer</a>
     </nav>
-    <section>
-        <h2>Inscrivez-vous</h2>>
-        <form action="" method="get">
-            <label for="nom">Nom d'utilisateur</label>
-            <input type="text" id="nom" name="nom" autofocus placeholder="3 caractères minimum" required pattern="{3,}" title="Saisissez votre pseudo">
-            <label for="email">Entrez votre email</label>
-            <input type="email" id="email" name="email" placeholder="Votre email" title="Saisissez votre email">
-            <label for="password">Mot de passe</label>
-            <input type="password" id="password" name="password" placeholder="Votre mot de passe"required title="Saisissez votre mot de passe">
-            <label for="password_confirm">Confirmez le mot de passe</label>
-            <input type="password" id="password_confirm" name="password_confirm" placeholder="Confirmez votre mot de passe" required title="Saisissez votre mot de passe">
-            <button type="submit">Création du compte</button>
-            <button type="reset">Annuler</button>
+    <section class="border border-black rounded-3 m-1 m-md-5 p-1 p-md-5 d-flex-column">
+        <h2 class="d-flex justify-content-center">Inscrivez-vous</h2>>
+        <form class="d-flex-column" action="" method="get">
+            <div class="d-flex justify-content-center m-1">
+                <label for="nom">Nom d'utilisateur</label>
+                <input type="text" id="nom" name="nom" autofocus placeholder="3 caractères minimum" required pattern="{3,}" title="Saisissez votre pseudo" size=50>
+            </div>
+            <div class="d-flex justify-content-center m-1">
+                <label for="email">Entrez votre email</label>
+                <input type="email" id="email" name="email" placeholder="Votre email" required title="Saisissez votre email" size=50>
+            </div>
+            <div class="d-flex justify-content-center m-1">
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" name="password" placeholder="Votre mot de passe"required title="Saisissez votre mot de passe" size=50>
+            </div>
+            <div class="d-flex justify-content-center m-1">
+                <label for="password_confirm">Confirmez le mot de passe</label>
+                <input type="password" id="password_confirm" name="password_confirm" placeholder="Confirmez votre mot de passe" required title="Saisissez votre mot de passe" size=50>
+            </div>
+            <div class="d-flex justify-content-center m-1">
+                <button class="btn btn-success" type="submit">Création du compte</button>
+                <button class="btn btn-danger" type="reset">Annuler</button>
+            </div>
         </form>
     </section>
 </body>
