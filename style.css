@@ -1,5 +1,14 @@
 body {background-color: lightskyblue;}
 
+/* ---------- LES CONSIGNES DU MOT DE PASSE ---------- */
+#lettre {color: red;}
+
+#chiffre {color: red;}
+
+#special {color: red;}
+
+#nbCaracteres {color: red;}
+
 /* ---------- LE PLATEAU ---------- */
 #board {
       display: grid;

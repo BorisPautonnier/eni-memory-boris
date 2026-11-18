@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <script src="user.js" defer></script>
     <title>ENI - Memory</title>
 </head>
 <body class="row justify-content-center">
@@ -17,11 +18,11 @@
         <a href="jeu.html" class="link-light">Jouer</a>
     </nav>
     <section class="border border-black rounded-3 bg-dark text-light text-center m-1 m-lg-5 p-1 p-lg-5 col-11 col-lg-8">
-        <h2>Inscrivez-vous</h2>>
+        <h2>Inscrivez-vous</h2>
         <form class="d-flex-column" action="" method="get">
             <div class="m-1">
                 <label for="name" class="col-4 text-end">Nom d'utilisateur</label>
-                <input class="col-7" type="text" id="name" name="name" autofocus placeholder="3 caractères minimum" required pattern="{3,}" title="Saisissez votre pseudo">
+                <input class="col-7" type="text" id="name" name="name" autofocus placeholder="3 caractères minimum" required pattern=".{3,}$" title="Saisissez votre pseudo">
             </div>
             <div class="m-1">
                 <label for="email" class="col-4 text-end">Entrez votre email</label>
@@ -29,7 +30,7 @@
             </div>
             <div class="m-1">
                 <label for="password" class="col-4 text-end">Mot de passe</label>
-                <input class="col-7" type="password" id="password" name="password" placeholder="Votre mot de passe"required title="Saisissez votre mot de passe">
+                <input class="col-7" type="password" id="password" name="password" placeholder="Votre mot de passe" required title="Saisissez votre mot de passe" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[^a-zA-Z0-9À-ÖØ-öø-ÿ])[^\s]{6,}$">
             </div>
             <div class="m-1">
                 <label for="password_confirm" class="col-4 text-end">Confirmez le mot de passe</label>
@@ -40,6 +41,13 @@
                 <button class="btn btn-danger" type="reset">Annuler</button>
             </div>
         </form>
+        <div>
+            <h3>Consignes du mot de passe :</h3>
+            <p id="lettre">Doit comporter une lettre</p>
+            <p id="chiffre">Doit comporter un chiffre</p>
+            <p id="special">Doit comporter un caractère spécial</p>
+            <p id="nbCaracteres">Doit faire au minimum 6 caractères</p>
+        </div>
     </section>
 </body>
 </html>
