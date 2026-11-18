@@ -15,6 +15,8 @@ body {background-color: lightskyblue;}
 
 #fort {width: 10vw; min-width: 100px;}
 
+#password_confirm_control {width: 30vw; min-width: 300px;}
+
 /* ---------- LE PLATEAU ---------- */
 #board {
       display: grid;

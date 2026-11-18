@@ -1,8 +1,5 @@
-function init(){
-    document.getElementById("password").addEventListener("input", passwordControl);
-};
-
-window.onload = init();
+document.getElementById("password").addEventListener("input", passwordControl);
+document.getElementById("password_confirm").addEventListener("input", passwordConfirmControl);
 
 function passwordControl(){
     const value = this.value;
@@ -10,7 +7,6 @@ function passwordControl(){
     const chiffre = document.getElementById("chiffre");
     const special = document.getElementById("special");
     const nbCaracteres = document.getElementById("nbCaracteres");
-    const faible = document.getElementById("faible");
     const moyen = document.getElementById("moyen");
     const fort = document.getElementById("fort");
 
@@ -50,3 +46,18 @@ function passwordControl(){
         fort.classList.add('invisible');
     };
 };
+
+function passwordConfirmControl(){
+    const value = this.value;
+    const mdp = document.getElementById("password");
+    const mdpConfirm = document.getElementById("password_confirm_control");
+    if(value === mdp.value){
+        mdpConfirm.classList.remove('invisible');
+    }else{
+        mdpConfirm.classList.add('invisible');
+    };
+};
+
+const name = getElementById("name");
+const email = getElementById("email");
+const password = getElementById("password")
