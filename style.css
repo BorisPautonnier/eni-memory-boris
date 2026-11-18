@@ -9,6 +9,12 @@ body {background-color: lightskyblue;}
 
 #nbCaracteres {color: red;}
 
+#faible {width: 10vw; min-width: 100px;}
+
+#moyen {width: 10vw; min-width: 100px;}
+
+#fort {width: 10vw; min-width: 100px;}
+
 /* ---------- LE PLATEAU ---------- */
 #board {
       display: grid;
