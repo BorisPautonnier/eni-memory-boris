@@ -1,1 +1,95 @@
-td{display: inline-block; font-size: 4.3em; width: 120px; height: 120px}
+body {background-color: lightskyblue;}
+
+/* ---------- LE PLATEAU ---------- */
+#board {
+      display: grid;
+      /* grid : les enfants (les cartes) sont placés dans une grille automatique */
+      grid-template-columns: repeat(4, 1fr);
+      /* 4 colonnes de largeur égale (1fr = 1 part). Avec 12 cartes, ça donne 3 lignes : donc 4x3 */
+      gap: 0.75rem;
+      /* espace entre les cartes */
+      max-width: 480px;
+      /* le plateau ne dépasse jamais 480 pixels de large */
+      margin: 0 auto;
+      /* marge haut/bas = 0, et gauche/droite = auto : ça centre le plateau */
+    }
+
+/* ---------- UNE CARTE (le bouton) ---------- */
+.memory-card {
+    aspect-ratio: 1 / 1;
+    /* largeur = hauteur : la carte est toujours un carré */
+    perspective: 800px;
+    /* donne de la profondeur 3D à l'effet de retournement (distance de vue en pixels) */
+    cursor: pointer;
+    /* le curseur devient une main quand on passe sur la carte */
+    border: 0;
+    /* supprime la bordure par défaut d'un bouton */
+    background: none;
+    /* supprime le fond gris par défaut d'un bouton */
+    padding: 0;
+    /* supprime l'espace intérieur par défaut d'un bouton */
+}
+
+/* ---------- LE CONTENEUR QUI TOURNE ---------- */
+.card-inner {
+    /* .card-inner : la boîte à l'intérieur de la carte, qui contient les 2 faces */
+    position: relative;
+    /* sert de repère pour placer les faces à l'intérieur (voir .card-face) */
+    width: 100%;
+    height: 100%;
+    /* prend toute la taille de la carte */
+    transition: transform 0.5s;
+    /* quand "transform" change, l'animation dure 0,5 seconde au lieu d'être instantanée */
+    transform-style: preserve-3d;
+    /* les deux faces restent placées en 3D (sinon elles seraient aplaties) */
+}
+
+/* Quand la carte est retournée (flipped) ou trouvée (matched), on fait pivoter le conteneur */
+.memory-card.flipped .card-inner,
+.memory-card.matched .card-inner {
+    transform: rotateY(180deg);
+    /* rotation de 180° autour de l'axe vertical : on voit alors l'autre face */
+}
+
+/* ---------- LES DEUX FACES DE LA CARTE ---------- */
+.card-face {
+    /* style commun aux deux faces */
+    position: absolute;
+    /* les deux faces sont superposées au même endroit */
+    inset: 0;
+    /* inset: 0 = collée aux 4 bords du conteneur (haut, bas, gauche, droite) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* flex + ces deux lignes : le contenu (emoji ou "?") est centré verticalement et horizontalement */
+    border-radius: 0.75rem;
+    /* coins arrondis */
+    backface-visibility: hidden;
+    /* quand la face est de dos (après rotation), elle devient invisible */
+    font-size: clamp(1.8rem, 7vw, 2.8rem);
+    /* taille de l'emoji : minimum 1.8rem, maximum 2.8rem, et entre les deux 7% de la largeur de l'écran */
+}
+
+.card-front {
+    /* la face visible au départ : le dos de la carte */
+    background: lightskyblue;
+    /* fond bleu (le bleu de Bootstrap) */
+    color: white;
+    /* texte blanc */
+    font-weight: bold;
+    /* texte en gras */
+}
+
+.card-back {
+    /* la face cachée au départ : celle qui contient l'emoji */
+    background: white;
+    /* fond blanc */
+    transform: rotateY(180deg);
+    /* elle est déjà tournée de 180° : ainsi, quand le conteneur tourne, elle apparaît à l'endroit */
+}
+
+.memory-card.matched .card-back { background: greenyellow; }
+/* une carte "matched" (paire trouvée) a un fond vert clair */
+
+.memory-card:focus-visible { outline: 3px solid yellow; border-radius: 0.75rem; }
+/* quand on navigue au clavier (touche Tab), la carte sélectionnée a un contour jaune */
