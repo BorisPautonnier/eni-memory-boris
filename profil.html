@@ -18,11 +18,30 @@
     </nav>
     <section class="border border-black rounded-3 bg-dark text-light text-center m-1 m-lg-5 p-1 p-lg-5 col-11 col-lg-8">
         <h2>Profil</h2>
-        <img class="d-block mx-auto" src="ressources\question.svg" alt="Image de profil" width="100"/>
-        <p>Nom d'utilisateur : <div></div></p>
-        <p>Email : <div></div></p>
-        <h2>Derniers scores :</h2>
+        <img class="d-block my-4 mx-auto" src="ressources\question.svg" alt="Image de profil" width="100"/>
+        <p>Nom d'utilisateur : <span id="pseudo2"></span></p>
+        <p>Email : <span id="email2"></span></p>
+        <h6>Taille du plateau</h6>
+        <div class="my-2">
+            <input type="radio" name="size" id="4x3" />
+            <label for="4x3">4x3</label>
+            <input type="radio" name="size" id="4x4" />
+            <label for="4x4">4x4</label>
+            <input type="radio" name="size" id="4x5" />
+            <label for="4x5">4x5</label>
+        </div>
+        <h6>Type d'images</h6>
+        <div class="my-2">
+            <input type="radio" name="type" id="legumes" />
+            <label for="legumes">Légumes</label>
+            <input type="radio" name="type" id="animaux" />
+            <label for="animaux">Animaux</label>
+            <input type="radio" name="type" id="sport" />
+            <label for="sport">Sport</label>
+        </div>
+        <h5>Derniers scores :</h5>
         <div></div>
     </section>
+    <script src="javascript/profil.js" defer></script>
 </body>
 </html>

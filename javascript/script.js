@@ -1,4 +1,14 @@
-const LEGUMES6 = ["🍆", "🥕", "🌶️", "🥬", "🥦", "🍄‍🟫"]; // Ce tableau contient les 6 symboles du jeu.
+const LEGUMES6 = ["🍆", "🥕", "🌶️", "🥬", "🥦", "🍄‍🟫"];
+const LEGUMES8 = ["🍆", "🥕", "🌶️", "🥬", "🥦", "🍄‍🟫", "🥔", "🌽"];
+const LEGUMES10 = ["🍆", "🥕", "🌶️", "🥬", "🥦", "🍄‍🟫", "🥔", "🌽", "🧅", "🫛"];
+
+const ANIMAUX6 = ["🐵", "🐶", "🐱", "🦊", "🐮", "🐷"];
+const ANIMAUX8 = ["🐵", "🐶", "🐱", "🦊", "🦁", "🐯", "🐮", "🐷"];
+const ANIMAUX10 = ["🐵", "🐶", "🐱", "🦊", "🦁", "🐯", "🐮", "🐷", "🐰", "🐼"];
+
+const SPORT6 = ["⚽", "⚾", "🏀", "🏐", "🏈", "🏉"];
+const SPORT8 = ["⚽", "⚾", "🏀", "🏐", "🏈", "🏉", "🎾", "🥊"];
+const SPORT10 = ["⚽", "⚾", "🏀", "🏐", "🏈", "🏉", "🎾", "🥊", "🏒", "🏓"];
 
 const boardEl = document.getElementById('board'); // On récupère le plateau de jeu.
 
@@ -12,22 +22,50 @@ let firstCard = null; // La première carte retournée du tour. null = aucune ca
 
 let lock = false; // Verrou : true = on interdit de cliquer sur les cartes.
 
-// Fonction pour mélanger un tableau
-function shuffle(array) {
-    // "array" est le tableau à mélanger.
-    for (let i = array.length - 1; i > 0; i--) {
-        // On part de la dernière case et on recule jusqu'à la case 1.
-        const j = Math.floor(Math.random() * (i + 1));
-        // un indice au hasard entre 0 et i.
-        [array[i], array[j]] = [array[j], array[i]];
-        // On échange les deux éléments de place.
-    }
-    return array;
-    // On renvoie le tableau mélangé.
-}
+// Fonction qui lance la partie en fonction de la taille du plateau et du type d'images.
+function choice(){
+    const size = localStorage.getItem("size");
+    const type = localStorage.getItem("type");
+
+    if(size == "4x3" && type == "legumes"){
+        initGame(LEGUMES6);
+    };
+
+    if(size == "4x4" && type == "legumes"){
+        initGame(LEGUMES8);
+    };
+
+    if(size == "4x5" && type == "legumes"){
+        initGame(LEGUMES10);
+    };
+
+    if(size == "4x3" && type == "animaux"){
+        initGame(ANIMAUX6);
+    };
+
+    if(size == "4x4" && type == "animaux"){
+        initGame(ANIMAUX8);
+    };
+
+    if(size == "4x5" && type == "animaux"){
+        initGame(ANIMAUX10);
+    };
+
+    if(size == "4x3" && type == "sport"){
+        initGame(SPORT6);
+    };
+
+    if(size == "4x4" && type == "sport"){
+        initGame(SPORT8);
+    };
+
+    if(size == "4x5" && type == "sport"){
+        initGame(SPORT10);
+    };
+};
 
 // Fonction qui initialise le plateau de jeu.
-function initGame(){
+function initGame(array){
     moves = 0;
     movesEl.textContent = moves;
     matchedPairs = 0;
@@ -35,7 +73,7 @@ function initGame(){
     lock = false;
     boardEl.innerHTML = ''; // innerHTML = '' : on supprime toutes les anciennes cartes du plateau.
 
-    const deck = shuffle([...LEGUMES6, ...LEGUMES6]); // [...LEGUMES, ...LEGUMES] crée un tableau avec chaque emoji en double (12 éléments). shuffle(...) : on le mélange.
+    const deck = shuffle([...array, ...array]); // [...LEGUMES, ...LEGUMES] crée un tableau avec chaque emoji en double (12 éléments). shuffle(...) : on le mélange.
 
     deck.forEach(symbol => {
         // "symbol" est l'emoji de la carte en cours de création.
@@ -48,8 +86,6 @@ function initGame(){
         card.dataset.symbol = symbol;
         // dataset : on stocke l'emoji dans la carte (attribut data-symbol).
         // On s'en servira pour savoir si deux cartes sont identiques.
-        card.setAttribute('aria-label', 'Carte face cachée');
-        // Texte lu par les lecteurs d'écran.
         card.innerHTML = `
             <div class="card-inner">
                 <div class="card-face card-front">?</div>
@@ -57,7 +93,7 @@ function initGame(){
             </div>`;
         // On remplit la carte avec ses deux faces : le dos avec "?" et la face avec l'emoji.
 
-        card.addEventListener('click', () => flip(card));
+        card.addEventListener('click', () => flip(card, array));
         // Quand on clique sur cette carte, on appelle la fonction flip(card).
 
         boardEl.appendChild(card);
@@ -66,7 +102,7 @@ function initGame(){
 };
 
 // Fonction pour le retournement de carte et vérification de paire.
-function flip(card) {
+function flip(card, array) {
     // Appelée à chaque clic sur une carte. "card" est la carte cliquée.
 
     if (lock || card === firstCard) return;
@@ -115,7 +151,7 @@ function flip(card) {
         lock = false;
         // On déverrouille le plateau.
 
-        if (matchedPairs === LEGUMES6.length) endGame();
+        if (matchedPairs === array.length) endGame();
         // Si on a trouvé toutes les paires, la partie est gagnée : on appelle endGame().
 
     } else {
@@ -146,8 +182,22 @@ function endGame(){
         if(answer) initGame();
         // Initialise le plateau si le joueur confirme.
     }, 1000);
+};
+
+// Fonction pour mélanger un tableau
+function shuffle(array) {
+    // "array" est le tableau à mélanger.
+    for (let i = array.length - 1; i > 0; i--) {
+        // On part de la dernière case et on recule jusqu'à la case 1.
+        const j = Math.floor(Math.random() * (i + 1));
+        // un indice au hasard entre 0 et i.
+        [array[i], array[j]] = [array[j], array[i]];
+        // On échange les deux éléments de place.
+    }
+    return array;
+    // On renvoie le tableau mélangé.
 }
 
-window.onload = initGame(); // Initialise le plateau au chargement de la page.
+window.onload = choice(); // Initialise le plateau au chargement de la page.
 
-document.addEventListener('keydown', e => {if (e.code === 'Space') initGame();}); // Initialise le plateau quand on appuie sur espace.
+document.addEventListener('keydown', e => {if (e.code === 'Space') choice();}); // Initialise le plateau quand on appuie sur espace.
