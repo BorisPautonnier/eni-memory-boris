@@ -1,5 +1,6 @@
 document.getElementById("password").addEventListener("input", passwordControl);
 document.getElementById("password_confirm").addEventListener("input", passwordConfirmControl);
+document.getElementById("formInscription").addEventListener("submit", storageAccount);
 
 function passwordControl(){
     const value = this.value;
@@ -50,14 +51,20 @@ function passwordControl(){
 function passwordConfirmControl(){
     const value = this.value;
     const mdp = document.getElementById("password");
-    const mdpConfirm = document.getElementById("password_confirm_control");
+    const mdpControl = document.getElementById("password_confirm_control");
     if(value === mdp.value){
-        mdpConfirm.classList.remove('invisible');
+        mdpControl.classList.remove('invisible');
     }else{
-        mdpConfirm.classList.add('invisible');
+        mdpControl.classList.add('invisible');
     };
 };
 
-const name = getElementById("name");
-const email = getElementById("email");
-const password = getElementById("password")
+function storageAccount(e){
+    e.preventDefault();
+    const pseudo = document.getElementById("pseudo");
+    const email = document.getElementById("email");
+    const password = document.getElementById("password");
+    localStorage.setItem("pseudo", pseudo.value);
+    localStorage.setItem("email", email.value);
+    localStorage.setItem("password", password.value);
+};

@@ -152,4 +152,4 @@ function endGame(){
 
 window.onload = initGame(); // Initialise le plateau au chargement de la page.
 
-document.addEventListener('keydown', e => {if (e.code === 'Space') initGame();}); // Initialise le plateau quand on appuie sur espace.
+document.addEventListener('keydown', e => {if (e.code === 'Space') initGame();}); // Initialise le plateau quand on appuie sur espace
