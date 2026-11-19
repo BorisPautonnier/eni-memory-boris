@@ -20,10 +20,11 @@ let matchedPairs = 0; // Le nombre de paires déjà trouvées.
 
 let firstCard = null; // La première carte retournée du tour. null = aucune carte retournée pour l'instant.
 
-let lock = false; // Verrou : true = on interdit de cliquer sur les cartes.
+let lock = false; // lock : true = on interdit de cliquer sur les cartes.
 
 // Fonction qui lance la partie en fonction de la taille du plateau et du type d'images.
 function choice(){
+    // On récupère la taille et le type dans le local storage.
     const size = localStorage.getItem("size");
     const type = localStorage.getItem("type");
 
@@ -71,7 +72,7 @@ function initGame(array){
     matchedPairs = 0;
     firstCard = null;
     lock = false;
-    boardEl.innerHTML = ''; // innerHTML = '' : on supprime toutes les anciennes cartes du plateau.
+    boardEl.innerHTML = ''; // On supprime toutes les anciennes cartes du plateau.
 
     const deck = shuffle([...array, ...array]); // [...LEGUMES, ...LEGUMES] crée un tableau avec chaque emoji en double (12 éléments). shuffle(...) : on le mélange.
 

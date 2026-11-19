@@ -49,9 +49,9 @@ body {background-color: lightskyblue;}
 
 /* ---------- LE CONTENEUR QUI TOURNE ---------- */
 .card-inner {
-    /* .card-inner : la boîte à l'intérieur de la carte, qui contient les 2 faces */
+    /* La boîte à l'intérieur de la carte, qui contient les 2 faces */
     position: relative;
-    /* sert de repère pour placer les faces à l'intérieur (voir .card-face) */
+    /* Sert de repère pour placer les faces à l'intérieur (voir .card-face) */
     width: 100%;
     height: 100%;
     /* prend toute la taille de la carte */
