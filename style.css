@@ -1,4 +1,4 @@
-body {background-color: lightskyblue;}
+body {background: linear-gradient(to bottom right, #4860A4, #CA2D78);}
 
 /* ---------- LES CONSIGNES DU MOT DE PASSE ---------- */
 #lettre {color: red;}
@@ -9,13 +9,13 @@ body {background-color: lightskyblue;}
 
 #nbCaracteres {color: red;}
 
-#faible {width: 10vw; min-width: 100px;}
+#faible {width: 100px;}
 
-#moyen {width: 10vw; min-width: 100px;}
+#moyen {width: 100px;}
 
-#fort {width: 10vw; min-width: 100px;}
+#fort {width: 100px;}
 
-#password_confirm_control {width: 30vw; min-width: 300px;}
+#passwordConfirmControl {width: 300px;}
 
 /* ---------- LE PLATEAU ---------- */
 #board {

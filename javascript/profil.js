@@ -1,10 +1,12 @@
 window.onload = () => {
     const pseudo = document.getElementById("pseudo2");
     const email = document.getElementById("email2");
+    const bestScore = document.getElementById("bestScore");
     const data = localStorage.getItem("user");
     const userData = JSON.parse(data);
     pseudo.textContent = userData.pseudo;
     email.textContent = userData.email;
+    bestScore.textContent = userData.bestScore;
 };
 
 document.getElementById("4x3").addEventListener("change", () => {

@@ -24,9 +24,8 @@ let lock = false; // lock : true = on interdit de cliquer sur les cartes.
 
 // Fonction qui lance la partie en fonction de la taille du plateau et du type d'images.
 function choice(){
-    // On récupère la taille et le type dans le local storage.
-    const size = localStorage.getItem("size");
-    const type = localStorage.getItem("type");
+    const size = localStorage.getItem("size"); // On récupère la taille du plateau dans le local storage.
+    const type = localStorage.getItem("type"); // On récupère le type d'images dans le local storage.
 
     if(size == "4x3" && type == "legumes"){
         initGame(LEGUMES6);

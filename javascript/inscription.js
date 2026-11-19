@@ -9,6 +9,7 @@ function passwordControl(){
     const chiffre = document.getElementById("chiffre");
     const special = document.getElementById("special");
     const nbCaracteres = document.getElementById("nbCaracteres");
+    const faible = document.getElementById("faible");
     const moyen = document.getElementById("moyen");
     const fort = document.getElementById("fort");
 
@@ -34,6 +35,12 @@ function passwordControl(){
         nbCaracteres.style.color = "green"; // Affiche en vert la condition de longueur de 6 caractères.
     }else{
         nbCaracteres.style.color = "red";
+    };
+
+    if(value.length >= 4){
+        faible.classList.remove('invisible'); // Affiche le niveau faible si mot de passe supérieur à 4 caractères.
+    }else{
+        faible.classList.add('invisible');
     };
 
     if(value.length >= 6 && value.match("[0-9]") || value.length >= 6 && value.match("[^a-zA-Z0-9À-ÖØ-öø-ÿ]")){
@@ -67,7 +74,7 @@ function storageAccount(e){
     const pseudo = document.getElementById("pseudo");
     const email = document.getElementById("email");
     const password = document.getElementById("password");
-    const userData = {pseudo: `${pseudo.value}`, email: `${email.value}`, password: `${password.value}`,}
+    const userData = {pseudo: `${pseudo.value}`, email: `${email.value}`, password: `${password.value}`,};
     localStorage.setItem("user", JSON.stringify(userData));
     window.location.href = 'connexion.html';
 };

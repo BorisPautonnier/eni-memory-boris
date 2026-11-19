@@ -9,5 +9,7 @@ function confirmUser(e){
     const userData = JSON.parse(data);
     if(email.value === userData.email && password.value === userData.password){
         window.location.href = 'profil.html';
+    }else{
+        alert("Mauvaise adresse mail ou mot de passe");
     };
 };
