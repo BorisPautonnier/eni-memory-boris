@@ -1,7 +1,5 @@
 const LEGUMES6 = ["🍆", "🥕", "🌶️", "🥬", "🥦", "🍄‍🟫"]; // Ce tableau contient les 6 symboles du jeu.
 
-const TOTAL_PAIRS = LEGUMES6.length; // Le nombre de paires à trouver, ici la longueur du tableau donc 6.
-
 const boardEl = document.getElementById('board'); // On récupère le plateau de jeu.
 
 const movesEl = document.getElementById("moves"); // Affichage du nombre de coup dans la page HTML.
@@ -117,7 +115,7 @@ function flip(card) {
         lock = false;
         // On déverrouille le plateau.
 
-        if (matchedPairs === TOTAL_PAIRS) endGame();
+        if (matchedPairs === LEGUMES6.length) endGame();
         // Si on a trouvé toutes les paires, la partie est gagnée : on appelle endGame().
 
     } else {
@@ -152,4 +150,4 @@ function endGame(){
 
 window.onload = initGame(); // Initialise le plateau au chargement de la page.
 
-document.addEventListener('keydown', e => {if (e.code === 'Space') initGame();}); // Initialise le plateau quand on appuie sur espace
+document.addEventListener('keydown', e => {if (e.code === 'Space') initGame();}); // Initialise le plateau quand on appuie sur espace.
