@@ -1,9 +1,25 @@
-Fichier pour expliquer le projet ENI-memory
+# ENI - Memory
 
-Projet avec un site qui comprend plusieurs pages html, une page d'accueil qui explique le principe du jeu, une d'inscription, une de connexion,
-une de profil où l'on peut sélectionner la taille du plateau et le types d'images et la page du jeu.
+Jeu de Memory réalisé en HTML, CSS et JavaScript dans le cadre d'un projet ENI.
 
-Avant de jouer, sélectionner la taille du plateau et le type d'images dans la page de profil.
+## Fonctionnalités
+
+- Inscription et connexion avec les données enregistrées dans le navigateur
+- Choix du format du plateau : 4 x 3, 4 x 4 ou 4 x 5
+- Choix du thème : légumes, animaux ou sport
+- Comptage des coups et rejouabilité avec la barre d'espace
+
+## Utilisation
+
+1. Ouvrir `index.html` dans un navigateur.
+2. S'inscrire puis se connecter.
+3. Sélectionner la taille du plateau et le thème dans le profil.
+4. Ouvrir la page **Jouer** pour démarrer une partie.
+
+## Technologies
+
+HTML, CSS, JavaScript, Bootstrap 5.
+
 
 create a new repository on the command line
 echo "# eni-memory-boris" >> README.md
