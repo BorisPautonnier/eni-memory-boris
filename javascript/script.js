@@ -179,7 +179,7 @@ function endGame(){
     setTimeout(() => {
         const answer = confirm(`🎉 Bravo !\nVous avez terminé en ${moves} coups.\nSouhaitez-vous rejouer ?`);
         // Lance un pop-up de victoire après 1 seconde pour avoir le temps de voir la dernière paire.
-        if(answer) initGame();
+        if(answer) choice();
         // Initialise le plateau si le joueur confirme.
     }, 1000);
 };
